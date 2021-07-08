@@ -1,0 +1,22 @@
+Define a class named Lista, which contains an internal class Node. Node has the following members:
+private int val;
+private Node next;
+
+Define an empty constructor for Node and one that receives a val
+
+Define inside the Lista class the following field:
+private Node start;
+
+Define the following self-explanatory constructors and methods inside Lista:
+public Lista();
+public printList();
+public void add(int val);
+public int size();
+public void addAtPosition(int val, int position);
+public void inspectPosition(int position);
+public void removePosition(int position);
+public void setAtPosition(int val, int position);
+
+Verify all methods running your list from a main method
+
+
