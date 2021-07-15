@@ -1,0 +1,8 @@
+Create the remaining database tables and their associated relationships, if any left
+Implement the following through SQL queries:
+Add 5 customers, 10 products, 5 orders and 3 payments
+Update the status of one order
+Add comments to one order
+View all customers
+View all orders for the third customer
+When placing an order update the stock for the products – try to implement with a small number of queries and explain your choice
