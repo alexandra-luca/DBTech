@@ -3,6 +3,7 @@ import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.sql.*;
+import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 
@@ -46,20 +47,66 @@ public class MyMain {
     }
 
     public static void main(String[] args) {
-//        MyMain.mavenImports();
-//        MyMain.databaseTest();
-        try {
-            Customer customer = Customer.getById(2);
-            System.out.println(customer);
+////        MyMain.mavenImports();
+////        MyMain.databaseTest();
+//        try {
+//            Customer customer = Customer.getById(2);
+//            System.out.println(customer);
+//
+////            int noUpdated = Customer.update("first_name", "Ionel2", 1);
+//            int noUpdated = Customer.update(new Customer("Costica92", "Costica", "Popescu"), 1);
+//            System.out.println("no updated = " + noUpdated);
+//        } catch (SQLException exception) {
+//            System.err.println("Customer exception: " + exception.getMessage());
+//            exception.printStackTrace();
+//        }
 
-//            int noUpdated = Customer.update("first_name", "Ionel2", 1);
-            int noUpdated = Customer.update(new Customer("Costica92", "Costica", "Popescu"), 1);
-            System.out.println("no updated = " + noUpdated);
-        } catch (SQLException exception) {
-            System.err.println("Customer exception: " + exception.getMessage());
-            exception.printStackTrace();
+        Customer c = new Customer();
+        List<Customer> customerList = null;
+        try {
+            customerList = c.getAll();
+        } catch (SQLException throwables) {
+            System.out.println("Ai gresit query-ul, verifica adnotarile");
+            throwables.printStackTrace();
+        } catch (IllegalAccessException e) {
+
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            System.out.println("Nu exista constructor fara parametri pentru clasa ta");
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            System.out.println("Numele atributelor din clasa nu corespund cu cele din tabela");
+            e.printStackTrace();
+        }
+        for (Customer x : customerList) {
+            System.out.println(x);
         }
 
+//        Product p = new Product();
+//        List<Product> productList = p.getAll();
+//        for (Product x : productList) {
+//            System.out.println(x);
+//        }
+
+//        Customer c1 = new Customer("irina", "irina", "toma");
+//        try {
+//            c1.insert();
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        } catch (IllegalAccessException | NoSuchFieldException e) {
+//            e.printStackTrace();
+//        }
+
+        Product p1 = new Product("123", "Tigaie", "tigaie tefal", 10, 123.11f);
+        try {
+            p1.insert();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
 
     }
 
