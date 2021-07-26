@@ -12,7 +12,7 @@
 	<artifactId>C11</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>C11</name>
-	<description>First couse Spring Boot fo DBTech</description>
+	<description>First course Spring Boot fo DBTech</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -24,6 +24,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
 		<dependency>
