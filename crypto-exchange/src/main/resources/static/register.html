@@ -39,15 +39,15 @@
 
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <main class="form-signin">
-            <form>
+            <form name="register-form">
                 <img src="assets/img/logo-128x128.png" title="Crypto Exchange" />
                 <h1 class="h3 mb-3 fw-normal">Create an Account</h1>
 
                 <div class="form-floating">
-                    <input type="email" class="form-control" id="register-email" placeholder="name@example.com">
+                    <input name="email" type="email" class="form-control" id="register-email" placeholder="name@example.com">
                 </div>
                 <div class="form-floating">
-                    <input type="password" class="form-control" id="register-password" placeholder="Password">
+                    <input name="password" type="password" class="form-control" id="register-password" placeholder="Password">
                 </div>
                 <div class="form-floating">
                     <input type="password" class="form-control" id="register-confirm"
@@ -55,7 +55,7 @@
                 </div>
 
                 <p class="lead mt-3">
-                    <a href="javascript:alert('Your account has been created!');"
+                    <a onclick="onClickRegisterBtn()"
                         class="btn btn-lg btn-secondary fw-bold border-white bg-white">Register</a>
                 </p>
                 <p class="lead">

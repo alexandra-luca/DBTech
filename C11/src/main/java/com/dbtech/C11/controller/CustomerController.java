@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,12 +21,19 @@ public class CustomerController {
     @ResponseBody
     @GetMapping("/customers")
     public List<Customer> getAllCustomers() {
-        // conectare la baza de date
-        // SELECT * from customers
-        // ResultSet while(next())
-
         List<Customer> customers = this.jdbcTemplate.query("SELECT * from customers", new CustomerRowMapper());
         return customers;
+    }
+
+    @GetMapping("/customers-html")
+    public ModelAndView getAllCustomersHtml() {
+        ModelAndView view = new ModelAndView("customers.html");
+        view.addObject("myUser", "Irina12");
+
+        List<Customer> customers = this.jdbcTemplate.query("SELECT * from customers", new CustomerRowMapper());
+        view.addObject("customerList", customers);
+
+        return view;
     }
 
     @GetMapping("/customers/{id}")  //TODO return an exception, NOT 500(BETTER 404)
@@ -36,30 +44,14 @@ public class CustomerController {
     }
 
 
-    @PutMapping("/customers")
+    @PostMapping("/customers")
     @ResponseBody
     public Boolean insertIntoCustomer(@RequestBody Customer customer){
         String sqlQuery = "INSERT INTO `db_tech_school`.`customers`\n" +
-                "(`username`,\n" +
-                "`last_name`,\n" +
-                "`first_name`,\n" +
-                "`phone`,\n" +
-                "`address`,\n" +
-                "`city`,\n" +
-                "`postal_code`,\n" +
-                "`country`)\n" +
-                "VALUES\n" +
-                "(?,\n" +
-                "?,\n" +
-                "?,\n" +
-                "?,\n" +
-                "?,\n" +
-                "?,\n" +
-                "?,\n" +
-                "?\n" +
-                ");";
+                "(`username`,`last_name`,`first_name`,`phone`,`address`,`city`,\n" +
+                "`postal_code`,`country`) VALUES (?,?,?,?,?,?,?,?);";
 
-        int n =this.jdbcTemplate.update(sqlQuery,customer.getUsername(),customer.getLastName(),
+        int n = this.jdbcTemplate.update(sqlQuery,customer.getUsername(),customer.getLastName(),
                 customer.getFirstName(),customer.getPhone(),customer.getAddress(),customer.getCity(),
                 customer.getPostalCode(),customer.getCountry());
 
@@ -69,7 +61,7 @@ public class CustomerController {
             return false;
         }
     }
-//
+
 //    @PutMapping("/customers/{id}")
 //    public Customer updateCustomerById(@PathVariable(name = "id") Integer cid, @RequestBody Customer customer) {
 //

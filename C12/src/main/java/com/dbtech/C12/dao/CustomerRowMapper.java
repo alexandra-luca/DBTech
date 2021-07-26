@@ -12,9 +12,13 @@ public class CustomerRowMapper implements RowMapper<Customer> {
 
         c.setId(resultSet.getInt("id"));
         c.setUsername(resultSet.getString("username"));
+        c.setLastName(resultSet.getString("last_name"));
         c.setFirstName(resultSet.getString("first_name"));
-        // TODO restul proprietatilor
-
+        c.setPhone(resultSet.getString("phone"));
+        c.setAddress(resultSet.getString("address"));
+        c.setCity(resultSet.getString("city"));
+        c.setPostalCode(resultSet.getString("postal_code"));
+        c.setCountry(resultSet.getString("country"));
         return c;
     }
 }
