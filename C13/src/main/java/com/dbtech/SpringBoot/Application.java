@@ -1,13 +1,13 @@
-package com.dbtech.C11;
+package com.dbtech.SpringBoot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class C13Application {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(C13Application.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }

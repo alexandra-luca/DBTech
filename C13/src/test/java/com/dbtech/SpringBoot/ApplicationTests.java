@@ -1,10 +1,10 @@
-package com.dbtech.C11;
+package com.dbtech.SpringBoot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class C13ApplicationTests {
+class ApplicationTests {
 
 	@Test
 	void contextLoads() {
