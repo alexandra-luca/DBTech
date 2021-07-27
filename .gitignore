@@ -1,1 +1,5 @@
 /C6Train/out/
+.idea
+target
+.settings
+.project
