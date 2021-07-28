@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+
+    <table>
+        <tbody>
+        <tr th:each="c:${customersList}">
+            <td th:text="${c.username}"></td>
+            <td th:text="${c.firstName}"></td>
+            <td><a th:href="@{/customers/{id}(id=${c.id})}">Customer's page</a></td>
+        </tr>
+
+        </tbody>>
+    </table>
+
+        <form action="/filteredCustomers">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="city">City:</label><br>
+            <input type="text" id="city" name="city"><br><br>
+            <label for="country">Country:</label><br>
+            <input type="text" id="country" name="country"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+
+</body>
+</html>
