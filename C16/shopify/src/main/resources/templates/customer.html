@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello from alt customer</title>
+</head>
+<body>
+<div>Salutare din</div>
+<div th:text="${customer.username}"></div>
+
+<table cellspacing="3" bgcolor="#000000">
+    <tr bgcolor="#ffffff">
+        <th>Username</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Telefon</th>
+        <th>Adresa</th>
+        <th>Oras</th>
+        <th>Cod postal</th>
+        <th>Tara</th>
+    </tr>
+    <tr bgcolor="#ffffff" th:each="c: ${customer}">
+        <td th:text="${c.username}"></td>
+        <td th:text="${c.firstName}"></td>
+        <td th:text="${c.lastName}"></td>
+        <td th:text="${c.phone}"></td>
+        <td th:text="${c.address}"></td>
+        <td th:text="${c.city}"></td>
+        <td th:text="${c.postalCode}"></td>
+        <td th:text="${c.country}"></td>
+
+    </tr>
+</table>
+
+
+</body>
+</html>

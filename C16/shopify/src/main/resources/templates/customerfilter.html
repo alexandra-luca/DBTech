@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>Customer filtrat</div>
+<table cellspacing="3" bgcolor="#000000">
+    <tr th:each="c: ${customerList}" bgcolor="#ffffff">
+        <td th:text="${c.username}"></td>
+        <td th:text="${c.firstName}"></td>
+        <td><a th:href="@{/customer/{id}(id=${c.id})}">Get customer</a></td>
+    </tr>
+</table>
+
+</body>
+</html>
